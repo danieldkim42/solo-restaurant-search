@@ -1,5 +1,30 @@
-header {
-  display: flex;
-  gap: 20px;
+#header {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  /* grid-template-areas: ; */
+  grid-gap: 10px;
+
+}
+#locations {
+  display: grid;
+  grid-template: auto / 1fr 3fr;
+  grid-template-areas:
+    "select select"
+    "label input";
   align-items: center;
+}
+.select {
+  grid-area: select;
+  height: 90%;
+}
+.locationLabel {
+  grid-area: label;
+}
+.locationInput {
+  grid-area: input;
+  height: 80%;
+}
+#buttons {
+  display: flex;
+  flex-direction: column;
 }

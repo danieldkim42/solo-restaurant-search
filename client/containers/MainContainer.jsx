@@ -1,4 +1,5 @@
 import React from 'react';
+import RestaurantsDisplay from '../components/RestaurantsDisplay.jsx'
 
 
 
@@ -11,7 +12,8 @@ const MainContainer = () => {
 
   return (
     <div>
-      THIS IS THE MAIN CONTAINER
+      <div>THIS IS THE FILTER BAR</div>
+      <RestaurantsDisplay/>
     </div>
   )
 }
