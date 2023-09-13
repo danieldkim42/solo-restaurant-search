@@ -1,0 +1,6 @@
+.box {
+  height: 80vh;
+  /* min-height: 3000px; */
+  overflow-y: auto;
+  border: 3px solid black;
+}

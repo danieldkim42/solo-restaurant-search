@@ -1,0 +1,26 @@
+.box {
+  display: grid;
+  grid-template: auto / repeat(4, 1fr);
+  grid-template-areas: 
+    "img info info info"
+    "img info info info"
+    "img info info info";
+  grid-gap: 10 px;
+  align-items: center;
+  justify-items: center;
+  border-bottom: 1px solid black;
+  min-height: 150px;
+  height: 15vh;
+}
+#img {
+  grid-area: img;
+  min-height: 125px;
+  height: 14vh;
+}
+.info {
+  grid-area: info;
+}
+.paragraph {
+  margin: 0;
+  padding: 5px;
+}

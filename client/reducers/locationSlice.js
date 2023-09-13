@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  locationList: ['firstLocation','secondLocation'],
+  locationList: ['Fullerton,CA','200 N Spring St, Los Angeles, CA 90012'],
   newLocation: ''
 };
 

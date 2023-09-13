@@ -7,7 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js'
   },
-  mode: 'development',
+  mode: process.env.NODE_ENV,
   module: {
     rules: [
       {
@@ -41,6 +41,9 @@ module.exports = {
       publicPath: '/dist',
       directory: path.resolve(__dirname, 'dist') 
     }
+    // proxy: {
+    //   '/': 'http://localhost:3000'
+    // }
   }
 };
 
