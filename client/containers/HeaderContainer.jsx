@@ -10,6 +10,7 @@ const HeaderContainer = () => {
   for(let i = 0; i < locationList.length; i++) {
     locationDrop.push(<option>{locationList[i]}</option>);
   }
+
   const dispatch = useDispatch();
   async function dispatchSearch() {
     const dropDown = document.getElementById('locationDrop');
@@ -27,26 +28,49 @@ const HeaderContainer = () => {
     dispatch(setList(result));
   }
 
+  const user = useSelector(state => state.locations.user);
 
-  const dispatchAddLocation = () => {
-    dispatch(addLocation());
-  }
   const dispatchSetNewLocation = (e) => {
     dispatch(setNewLocation(e.target.value));
   }
-  const dispatchUpdateLocation = () => {
+
+  async function dispatchAddLocation() {
+    dispatch(addLocation());
+    const locationInput = document.getElementById('locationInput');
+    console.log(locationInput.value);
+    let string = locationInput.value;
+    const result = await fetch('/home/users/' + user, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([locationInput.value])
+    })
+  }
+  async function dispatchUpdateLocation() {
     const dropDown = document.getElementById('locationDrop');
+    const locationInput = document.getElementById('locationInput');
+    const result = await fetch('/home/users/' + user, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([dropDown.value, locationInput.value])
+    })
     dispatch(updateLocation(dropDown.value));
   }
-  const dispatchDeleteLocation = () => {
+  async function dispatchDeleteLocation() {
     const dropDown = document.getElementById('locationDrop');
-    dispatch(deleteLocation(dropDown.value));
+    const value = dropDown.value;
+    const result = await fetch('/home/users/' + user, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify([value])
+    })
+    dispatch(deleteLocation(value));
   }
-
-
-
-
-
 
   return (
     <header id={styles.header}>

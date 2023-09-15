@@ -32,10 +32,23 @@ module.exports = {
       }
     ]
   },
-  plugins: [new HtmlWebpackPlugin({
-    title: 'Development',
-    template: 'index.html'
-  })],
+  plugins: [
+    new HtmlWebpackPlugin({
+      title: 'home',
+      filename: 'index.html',
+      template: './htmlFiles/index.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'login',
+      filename: 'login.html',
+      template: './htmlFiles/login.html'
+    }),
+    new HtmlWebpackPlugin({
+      title: 'signup',
+      filename: 'signup.html',
+      template: './htmlFiles/signup.html'
+    })
+  ],
   devServer: {
     static: {
       publicPath: '/dist',

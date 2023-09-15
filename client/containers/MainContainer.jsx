@@ -12,7 +12,7 @@ const MainContainer = () => {
 
   return (
     <div>
-      <div>THIS IS THE FILTER BAR</div>
+      {/* <div>THIS IS THE FILTER BAR</div> */}
       <RestaurantsDisplay/>
     </div>
   )

@@ -1,14 +1,21 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   locationList: ['Fullerton,CA','200 N Spring St, Los Angeles, CA 90012'],
-  newLocation: ''
+  newLocation: '',
+  user: ''
 };
 
 export const locationSlice = createSlice({
   name: 'locations',
   initialState,
   reducers: {
+    setUser: (state, action) => {
+      state.user = action.payload;
+    },
+    setLocationList: (state, action) => {
+      state.locationList = action.payload;
+    },
     addLocation: (state, action) => {
       state.locationList.push(state.newLocation);
       state.newLocation = '';
@@ -34,6 +41,6 @@ export const locationSlice = createSlice({
   }
 })
 
-export const { addLocation, setNewLocation, updateLocation, deleteLocation } = locationSlice.actions;
+export const { setUser, setLocationList, addLocation, setNewLocation, updateLocation, deleteLocation } = locationSlice.actions;
 
 export default locationSlice.reducer;
